@@ -6,4 +6,5 @@ import tailwind from '@astrojs/tailwind'
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://eledoce.github.io/visual-novel-para-pc',
+  base: '/visual-novel-para-pc/',
 })
