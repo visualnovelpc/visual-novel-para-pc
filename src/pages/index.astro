@@ -1,9 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Hero from '../components/home/Hero.astro'
+
+import Entry from '../components/Entry.astro'
 ---
 
 <Layout title="Visual Novel Para Pc: novela visual">
   <main>
-    <h1>Visual novel para pc</h1>
+    <Hero />
+    <div class="flex p-5">
+      <aside class="w-2/5">contenido</aside>
+      <section class="w-3/5 p-10">
+        <Entry />
+      </section>
+    </div>
   </main>
 </Layout>

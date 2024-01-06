@@ -1,0 +1,14 @@
+---
+import hero from '../../assets/heroImage.jpg'
+import { Image } from 'astro:assets'
+---
+
+<section>
+  <Image src={hero} alt="hero" class="w-1/2" />
+</section>
+
+<style>
+  section {
+    @apply flex flex-col items-center justify-center;
+  }
+</style>

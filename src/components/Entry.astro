@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets'
+import img from '/public/test/purexconnect.png'
+const etiquetas = [
+  'eroge',
+  'español',
+  'Mediafire',
+  'multples finales',
+  'novela visual',
+  'parcial',
+  'Pure x Connect',
+  'romance',
+  'Tsundere',
+  'visual novel',
+  'visualnovelparapc',
+]
+---
+
+<article>
+  <h1>Pure x Connect</h1>
+  <Image src={img} alt="Pure x Connect" class="rounded" />
+  <p>
+    Hayato ha anhelado por un romance desde hace mucho tiempo, pero en lugar de
+    estar aburrido perdiendo el tiempo, el desea caer enamorado como en un
+    eroge, por eso todos se burla de él. más es lo que todos quieren, cierto?
+    enserio esta mal querer tal relación?.
+  </p>
+  <h2 class="text-xl pb-2">Tags:</h2>
+  {
+    etiquetas.map((etiqueta) => (
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        {etiqueta}
+      </span>
+    ))
+  }
+</article>
+
+<style>
+  h1 {
+    @apply text-4xl pb-5 text-center font-semibold;
+  }
+  article {
+    @apply bg-slate-900 p-10 text-white rounded-xl;
+  }
+  p {
+    @apply text-justify text-stone-200 py-3;
+  }
+</style>
