@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         lilita: ['Lilita One', 'sans-serif'],
+        asap: ['Asap Variable', 'sans-serif'],
+        concertOne: ['Concert One', 'cursive'],
       },
     },
   },

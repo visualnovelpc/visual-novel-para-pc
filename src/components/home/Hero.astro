@@ -4,11 +4,18 @@ import { Image } from 'astro:assets'
 ---
 
 <section>
-  <Image src={hero} alt="hero" class="w-1/2" />
+  <Image src={hero} alt="hero" class="w-1/2 rounded-br-xl" />
+  <div class="w-full">
+    <p>Blog de novelas visuales, eroges y arcades en español para pc.</p>
+  </div>
 </section>
 
 <style>
   section {
-    @apply flex flex-col items-center justify-center;
+    @apply flex  items-center justify-between;
+  }
+
+  p {
+    @apply w-1/2 mx-auto text-center text-4xl  font-concertOne text-slate-900;
   }
 </style>

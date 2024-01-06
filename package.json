@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/asap": "^5.0.19",
+    "@fontsource/asap-condensed": "^5.0.18",
+    "@fontsource/concert-one": "^5.0.18",
     "@fontsource/lilita-one": "^5.0.18",
     "astro": "^4.1.1",
     "tailwindcss": "^3.4.1"
