@@ -9,9 +9,21 @@ import Entry from '../components/Entry.astro'
   <main>
     <Hero />
     <div class="flex p-5">
-      <aside class="w-2/5">contenido</aside>
-      <section class="w-3/5 p-10">
-        <Entry />
+      <aside class="w-2/5 rounded-xl bg-slate-400 p-5 flex flex-col gap-2">
+        {
+          Array(10)
+            .fill(1)
+            .map(() => (
+              <div class="inline-flex justify-start items-center w-full gap-3 font-asap bg-slate-500 rounded-md">
+                <div class="h-10 w-10 bg-slate-950 rounded-md" />
+                <p>Pure x Connect</p>
+              </div>
+            ))
+        }
+      </aside>
+      <section class="w-3/5 p-10 flex flex-col gap-10">
+        <h3 class="font-lilita text-5xl text-slate-900">Ultimas entradas</h3>
+        <Entry /><Entry /><Entry /><Entry /><Entry />
       </section>
     </div>
   </main>
