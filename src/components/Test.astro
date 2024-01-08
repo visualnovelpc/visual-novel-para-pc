@@ -1,0 +1,36 @@
+---
+const data = await Astro.glob('../pages/entradas/**/*.astro')
+console.log(data[0].url)
+import { url as urlBase } from '../scripts/url'
+---
+
+<div class="flex flex-col">
+  {
+    data.map((e) => {
+      let url = e.url
+      url = url.split('/').slice(-4).join('/')
+
+      console.log(e.cover)
+
+      return (
+        <a
+          href={`${urlBase}/${url}`}
+          class="bg-slate-500 p-2 rounded m-1 text-white"
+        >
+          <p class="font-lilita text-3xl">{e.title}</p>
+          <img src={e.cover} alt="img" class="w-1/2 mx-auto rounded-md" />
+          <div class="flex flex-wrap gap-2 pt-5">
+            {e.tags.map((tag) => {
+              if (tag)
+                return (
+                  <div class="bg-slate-400 rounded-full text-white text-xs p-1 px-3">
+                    {tag}
+                  </div>
+                )
+            })}
+          </div>
+        </a>
+      )
+    })
+  }
+</div>

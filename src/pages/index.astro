@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/home/Hero.astro'
 
 import Entry from '../components/Entry.astro'
+
+import Test from '../components/Test.astro'
+
+// const page: any = await Astro.glob('../assets/entries/*.astro')
 ---
 
 <Layout title="Visual Novel Para Pc: novela visual">
@@ -23,8 +27,33 @@ import Entry from '../components/Entry.astro'
       </aside>
       <section class="w-3/5 p-10 flex flex-col gap-10">
         <h3 class="font-lilita text-5xl text-slate-900">Ultimas entradas</h3>
-        <Entry /><Entry /><Entry /><Entry /><Entry />
+        <Test />
+        <Entry /><Entry /><Entry />
       </section>
     </div>
   </main>
 </Layout>
+
+<style>
+  feed {
+    @apply flex flex-col gap-2;
+  }
+  entry {
+    @apply border border-black p-5;
+  }
+  entry id,
+  entry updated {
+    @apply hidden;
+  }
+
+  author {
+    @apply flex border border-black;
+  }
+  author name {
+    @apply text-blue-500;
+  }
+  author email,
+  author uri {
+    @apply hidden;
+  }
+</style>
