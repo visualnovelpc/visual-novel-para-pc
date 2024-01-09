@@ -3,10 +3,11 @@ import { url } from '../scripts/url'
 ---
 
 <header>
-  <h1 class="font-lilita">Visual Novel para PC</h1>
+  <h1>Visual Novel para PC</h1>
 
   <nav class="inline-flex gap-10 pr-10">
     <a href=`${url}/`>Inicio</a>
+    <a href=`${url}/lista/1`>Lista de novelas</a>
     <a href=`${url}/buscar`>Buscar</a>
   </nav>
 </header>
@@ -20,6 +21,6 @@ import { url } from '../scripts/url'
   }
 
   h1 {
-    @apply flex justify-between items-center px-5 py-3 bg-slate-900 text-5xl bg-gradient-to-t from-rose-400 to-white bg-clip-text text-transparent;
+    @apply flex justify-between items-center px-5 py-3 bg-slate-900 text-5xl bg-gradient-to-t from-rose-400 to-white bg-clip-text text-transparent font-lilita;
   }
 </style>

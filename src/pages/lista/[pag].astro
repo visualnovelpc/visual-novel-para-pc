@@ -1,0 +1,65 @@
+---
+import { url as urlBase } from '../../scripts/url'
+import Pagination from '../../components/Pagination.astro'
+import Layout from '../../layouts/Layout.astro'
+const { pag } = Astro.params
+
+export const getStaticPaths = async () => {
+  const data = await Astro.glob('../entradas/**/*.astro')
+  data.sort((a, b) => new Date(b.updated) - new Date(a.updated))
+
+  const routes = []
+
+  const entriesForPage = 10
+  const totalPage = Math.ceil(data.length / entriesForPage)
+
+  for (let i = 1; i <= totalPage; i++) {
+    routes.push({
+      params: { pag: i },
+      props: {
+        data: data.slice((i - 1) * entriesForPage, i * entriesForPage),
+      },
+    })
+  }
+  console.log(routes)
+
+  return routes
+}
+
+const { data } = Astro.props
+const totalPage = 4
+---
+
+<Layout title={`Página ${pag}`}>
+  <Pagination
+    currentPage={pag}
+    totalPage={totalPage}
+    url={`lista`}
+    outerDiv="flex items-center justify-center p-3 bg-slate-200"
+    activeButton="bg-blue-500 text-white"
+    button="px-2 p-1 text-xs rounded-md shadow-md hover:bg-blue-400 hover:text-white transition"
+    buttonGroup="flex items-center justify-center gap-2 h-full"
+    disabledButton=""
+  />
+  <section>
+    <p>
+      pagina {pag}
+    </p>
+    <div class="grid grid-cols-4 p-5 gap-5">
+      {
+        data.map((e) => {
+          const urlSplit = e.url.split('/').slice(-4).join('/').split('.')[0]
+          return (
+            <a
+              class="border p-2 rounded-md bg-slate-800 text-white"
+              href={`${urlBase}/${urlSplit}`}
+            >
+              <h1>{e.title}</h1>
+              <img src={e.cover} alt="" />
+            </a>
+          )
+        })
+      }
+    </div>
+  </section>
+</Layout>

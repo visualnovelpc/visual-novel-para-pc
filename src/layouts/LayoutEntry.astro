@@ -1,13 +1,32 @@
 ---
-import { url } from '../scripts/url'
+import { url as urlBase } from '../scripts/url'
+import Header from '../components/Header.astro'
+import '@fontsource/lilita-one'
+import '@fontsource-variable/asap'
+import '@fontsource/concert-one'
+
+const { title, lastUrl } = Astro.props
+console.log(lastUrl, 'la ultima ruta')
 ---
 
-<div>
-  <h1>
-    Header del layout
-    <a href={`${url}/`}>regresar</a>
-  </h1>
-  <div>
-    <slot />
-  </div>
-</div>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {title}
+    </title>
+  </head>
+  <body>
+    <Header />
+    <h1
+      class="pl-10 text-2xl p-1 font-lilita bg-gradient-to-r text-rose-900 from-rose-300 to-rose-500"
+    >
+      {title}
+    </h1>
+
+    <div>
+      <slot />
+    </div>
+  </body>
+</html>
