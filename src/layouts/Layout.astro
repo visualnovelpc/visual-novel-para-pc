@@ -18,6 +18,21 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZMTWJ2Y9VG"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-ZMTWJ2Y9VG')
+    </script>
   </head>
   <body>
     <Header />
