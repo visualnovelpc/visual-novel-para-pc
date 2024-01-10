@@ -1,0 +1,53 @@
+---
+import type { AstroInstance } from 'astro'
+const data = (await Astro.glob('../../pages/entradas/**/*.astro')) as Entry[] &
+  AstroInstance[]
+
+data.sort(
+  (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
+)
+
+const dataToRender = data.slice(0, 10)
+console.log(data[0].url)
+import { url as urlBase } from '../../scripts/url'
+
+console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
+---
+
+<div>
+  <div class="grid grid-cols-2 gap-3">
+    {
+      dataToRender.map((e: any) => {
+        let url = e.url
+        url = e.url.split('/').slice(-4).join('/').split('.')[0]
+
+        return (
+          <a
+            href={`${urlBase}/${url}`}
+            class="bg-slate-800  p-2 rounded m-1 text-white  overflow-hidden"
+          >
+            <p class="font-lilita text-xl h-16 text-center">{e.title}</p>
+            <div class="h-52 w-full">
+              <img src={e.cover} alt="img" class="h-full mx-auto rounded-md" />
+            </div>
+            <div class="h-32 overflow-y-auto flex justify-center items-center mt-5">
+              <section class="inline-flex flex-wrap items-start gap-1 h-fit">
+                {e.tags.map((tag) => {
+                  if (tag)
+                    return (
+                      <div class="bg-slate-400 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+                })}
+              </section>
+            </div>
+            <p class="text-right text-slate-400 text-xs pt-2">
+              Posteado el {new Date(e.updated).toLocaleDateString()}
+            </p>
+          </a>
+        )
+      })
+    }
+  </div>
+</div>

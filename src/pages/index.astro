@@ -2,9 +2,8 @@
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/home/Hero.astro'
 
-import Entry from '../components/Entry.astro'
-
-import Test from '../components/Test.astro'
+import LastTen from '../components/home/LastTen.astro'
+import Comments from '../components/Comments.astro'
 
 // const page: any = await Astro.glob('../assets/entries/*.astro')
 ---
@@ -26,13 +25,14 @@ import Test from '../components/Test.astro'
         }
       </aside>
       <section class="w-3/5 p-10 flex flex-col gap-10">
-        <h3 class="font-lilita text-5xl text-slate-900">Ultimas entradas</h3>
+        <h3 class="font-lilita text-5xl text-slate-900">Últimas 10 entradas</h3>
 
-        <Test />
-
-        <Entry /><Entry /><Entry />
+        <LastTen />
       </section>
     </div>
+    <section class="p-5 bg-white text-black">
+      <Comments />
+    </section>
   </main>
 </Layout>
 

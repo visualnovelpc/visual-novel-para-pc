@@ -1,16 +1,27 @@
 ---
+import type { AstroInstance } from 'astro'
+
 import { url as urlBase } from '../../scripts/url'
 import Pagination from '../../components/Pagination.astro'
 import Layout from '../../layouts/Layout.astro'
 const { pag } = Astro.params
 
+const entries = (await Astro.glob('../entradas/**/*.astro')) as Entry[] &
+  AstroInstance[]
+
+const entriesForPage = 12
+const totalPage = Math.ceil(entries.length / entriesForPage)
+
 export const getStaticPaths = async () => {
-  const data = await Astro.glob('../entradas/**/*.astro')
-  data.sort((a, b) => new Date(b.updated) - new Date(a.updated))
+  const entriesForPage = 12
+  const data = (await Astro.glob('../entradas/**/*.astro')) as Entry[] &
+    AstroInstance[]
+  data.sort(
+    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
+  )
 
   const routes = []
 
-  const entriesForPage = 10
   const totalPage = Math.ceil(data.length / entriesForPage)
 
   for (let i = 1; i <= totalPage; i++) {
@@ -27,7 +38,6 @@ export const getStaticPaths = async () => {
 }
 
 const { data } = Astro.props
-const totalPage = 4
 ---
 
 <Layout title={`Página ${pag}`}>
