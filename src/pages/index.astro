@@ -11,8 +11,10 @@ import Comments from '../components/Comments.astro'
 <Layout title="Visual Novel Para Pc: novela visual">
   <main>
     <Hero />
-    <div class="flex p-5">
-      <aside class="w-2/5 rounded-xl bg-slate-400 p-5 flex flex-col gap-2">
+    <div class="flex p-5 md:flex-row flex-col">
+      <aside
+        class="w-4/5 mx-auto md:w-2/5 rounded-xl bg-slate-400 p-5 flex flex-col gap-2"
+      >
         {
           Array(10)
             .fill(1)
@@ -24,8 +26,10 @@ import Comments from '../components/Comments.astro'
             ))
         }
       </aside>
-      <section class="w-3/5 p-10 flex flex-col gap-10">
-        <h3 class="font-lilita text-5xl text-slate-900">Últimas 10 entradas</h3>
+      <section class="w-full mx-auto md:w-3/5 md:p-10 flex flex-col gap-10">
+        <h3 class="font-lilita text-5xl pl-4 text-slate-900">
+          Últimas 10 entradas
+        </h3>
 
         <LastTen />
       </section>

@@ -14,8 +14,8 @@ import { url as urlBase } from '../../scripts/url'
 console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
 ---
 
-<div data-pagefind-ignore>
-  <div class="grid grid-cols-2 gap-3">
+<div data-pagefind-ignore class="border">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
     {
       dataToRender.map((e: any) => {
         let url = e.url
@@ -28,7 +28,7 @@ console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
           >
             <p class="font-lilita text-xl h-16 text-center">{e.title}</p>
             <div class="h-52 w-full">
-              <img src={e.cover} alt="img" class="h-full mx-auto rounded-md" />
+              <img src={e.cover} alt="img" class="w-full mx-auto rounded-md" />
             </div>
             <div class="h-32 overflow-y-auto flex justify-center items-center mt-5">
               <section class="inline-flex flex-wrap items-start gap-1 h-fit">

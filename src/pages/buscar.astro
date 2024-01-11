@@ -4,10 +4,11 @@ import Search from 'astro-pagefind/components/Search'
 ---
 
 <Layout title="Buscar">
-  <div>buscar</div>
-  <Search
-    id="search"
-    className="pagefind-ui"
-    uiOptions={{ showImages: false }}
-  />
+  <div class="w-1/2 mx-auto h-[calc(80vh)] overflow-y-auto">
+    <Search
+      id="search"
+      className="pagefind-ui"
+      uiOptions={{ showImages: false }}
+    />
+  </div>
 </Layout>
