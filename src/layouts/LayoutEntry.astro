@@ -2,6 +2,7 @@
 import { url as urlBase } from '../scripts/url'
 import Comments from '../components/Comments.astro'
 import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 import '@fontsource/lilita-one'
 import '@fontsource-variable/asap'
 import '@fontsource/concert-one'
@@ -14,6 +15,7 @@ console.log(lastUrl, 'la ultima ruta')
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>
       {title}
     </title>
@@ -39,11 +41,13 @@ console.log(lastUrl, 'la ultima ruta')
     >
       {title}
     </h1>
-    <section class="p-5 bg-white text-black">
-      <Comments />
-    </section>
-    <div class="w-full text-2xl md:w-1/2 mx-auto py-10">
+    <section class="p-5 bg-white text-black"></section>
+    <div class="w-full p-4\ border text-2xl md:w-1/2 mx-auto py-10">
       <slot />
     </div>
+    <div class="w-full px-5 md:w-2/3 mx-auto">
+      <Comments />
+    </div>
+    <Footer />
   </body>
 </html>

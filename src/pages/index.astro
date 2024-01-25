@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/home/Hero.astro'
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/home/Hero.astro'
 
-import LastTen from '../components/home/LastTen.astro'
-import Comments from '../components/Comments.astro'
+import LastTen from '@/components/home/LastTen.astro'
+import LastTenBlogEntries from '@/components/home/LastTenBlogEntries.astro'
+import Comments from '@/components/Comments.astro'
 
 // const page: any = await Astro.glob('../assets/entries/*.astro')
 ---
@@ -15,20 +16,14 @@ import Comments from '../components/Comments.astro'
       <aside
         class="w-4/5 mx-auto md:w-2/5 rounded-xl bg-slate-400 p-5 flex flex-col gap-2"
       >
-        {
-          Array(10)
-            .fill(1)
-            .map(() => (
-              <div class="inline-flex justify-start items-center w-full gap-3 font-asap bg-slate-500 rounded-md">
-                <div class="h-10 w-10 bg-slate-950 rounded-md" />
-                <p>Pure x Connect</p>
-              </div>
-            ))
-        }
+        <h3 class="font-lilita text-3xl pl-4 text-slate-900">
+          Últimas noticias del blog
+        </h3>
+        <LastTenBlogEntries />
       </aside>
       <section class="w-full mx-auto md:w-3/5 md:p-10 flex flex-col gap-10">
         <h3 class="font-lilita text-5xl pl-4 text-slate-900">
-          Últimas 10 entradas
+          Últimas 10 novelas
         </h3>
 
         <LastTen />

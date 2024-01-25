@@ -52,8 +52,8 @@ const { data } = Astro.props
     disabledButton=""
   />
   <section data-pagefind-ignore>
-    <p>
-      pagina {pag}
+    <p class="text-3xl font-semibold text-center p-2">
+      Página {pag} de {totalPage}
     </p>
     <div class="grid grid-cols-4 p-5 gap-5">
       {
@@ -72,4 +72,14 @@ const { data } = Astro.props
       }
     </div>
   </section>
+  <Pagination
+    currentPage={pag}
+    totalPage={totalPage}
+    url={`lista`}
+    outerDiv="flex items-center justify-center p-3 bg-slate-200"
+    activeButton="bg-blue-500 text-white"
+    button="px-2 p-1 text-xs rounded-md shadow-md hover:bg-blue-400 hover:text-white transition"
+    buttonGroup="flex items-center justify-center gap-2 h-full"
+    disabledButton=""
+  />
 </Layout>

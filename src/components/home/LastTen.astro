@@ -14,7 +14,7 @@ import { url as urlBase } from '../../scripts/url'
 console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
 ---
 
-<div data-pagefind-ignore class="border">
+<div data-pagefind-ignore>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
     {
       dataToRender.map((e: any) => {
@@ -28,14 +28,57 @@ console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
           >
             <p class="font-lilita text-xl h-16 text-center">{e.title}</p>
             <div class="h-52 w-full">
-              <img src={e.cover} alt="img" class="w-full mx-auto rounded-md" />
+              <img
+                src={e.cover}
+                alt="img"
+                class="h-full w-auto mx-auto rounded-md object-cover "
+              />
             </div>
             <div class="h-32 overflow-y-auto flex justify-center items-center mt-5">
               <section class="inline-flex flex-wrap items-start gap-1 h-fit">
                 {e.tags.map((tag) => {
+                  if (tag === 'Mediafire')
+                    return (
+                      <div class="bg-blue-600 rounded-full h-fit text-white text-[10px] p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+                  if (tag === 'Mega')
+                    return (
+                      <div class="bg-red-600 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+                  if (tag === 'eroge')
+                    return (
+                      <div class="bg-pink-600 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+
+                  if (tag === 'romance')
+                    return (
+                      <div class="bg-fuchsia-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+
+                  if (tag === 'novela cinetica')
+                    return (
+                      <div class="bg-yellow-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+                  if (tag === 'sin h')
+                    return (
+                      <div class="bg-green-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                        {tag}
+                      </div>
+                    )
+
                   if (tag)
                     return (
-                      <div class="bg-slate-400 rounded-full h-fit text-white text-xs p-1 px-2">
+                      <div class="bg-slate-400/10 rounded-full h-fit text-white text-xs p-1 px-2">
                         {tag}
                       </div>
                     )
