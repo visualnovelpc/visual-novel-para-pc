@@ -1,0 +1,173 @@
+---
+import { url as urlBase } from '../scripts/url'
+const { url, cover, title, tags, updated } = Astro.props
+---
+
+<a
+  href={`${urlBase}/${url}`}
+  class="bg-slate-800 p-2 rounded m-1 text-white overflow-hidden"
+>
+  <p class="font-lilita text-xl h-16 text-center">{title}</p>
+  <div class="h-52 w-full">
+    <img
+      src={cover}
+      alt="img"
+      class="h-full w-auto mx-auto rounded-md object-cover"
+    />
+  </div>
+  <div class="h-32 overflow-y-auto flex justify-center items-center mt-5">
+    <section class="inline-flex flex-wrap items-start gap-1 h-fit">
+      {
+        tags.map((tag) => {
+          if (tag === 'Mediafire')
+            return (
+              <div class="bg-blue-600 rounded-full h-fit text-white text-[10px] p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'Mega')
+            return (
+              <div class="bg-red-600 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'eroge')
+            return (
+              <div class="bg-pink-600 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'romance')
+            return (
+              <div class="bg-fuchsia-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'novela cinetica')
+            return (
+              <div class="bg-yellow-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'sin h')
+            return (
+              <div class="bg-green-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'yuri')
+            return (
+              <div class="bg-purple-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'Incesto')
+            return (
+              <div class="bg-orange-500 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'Misterio')
+            return (
+              <div class="bg-gray-500 rounded-full h-fit text-blue-200 text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'Ntr')
+            return (
+              <div class="bg-rose-100 rounded-full h-fit text-red-500 text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'trap')
+            return (
+              <div class="bg-rose-500 rounded-full h-fit text-red-100 text-xs p-1 px-2">
+                Trapos
+              </div>
+            )
+          if (tag === 'Comedia')
+            return (
+              <div class="bg-yellow-400 rounded-full h-fit text-black text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'Loli')
+            return (
+              <div class="bg-purple-200 rounded-full h-fit text-purple-600 text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'yandere')
+            return (
+              <div class="bg-teal-400 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'yaoi')
+            return (
+              <div class="bg-rose-400 rounded-full h-fit text-white text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'gore')
+            return (
+              <div class="bg-red-600 rounded-full h-fit text-red-200 text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'español' || tag === 'Completo') return
+
+          if (tag === 'maid')
+            return (
+              <div class="bg-gray-100 rounded-full h-fit text-black text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'futa')
+            return (
+              <div class="bg-blue-200 rounded-full h-fit text-black text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+          if (tag === 'otome')
+            return (
+              <div class="bg-pink-200 rounded-full h-fit text-black text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'Shota')
+            return (
+              <div class="bg-cyan-100 rounded-full h-fit text-cyan-700 text-xs p-1 px-2">
+                {tag}
+              </div>
+            )
+
+          if (tag === 'visualnovelparapc') return
+          if (tag === 'VisualNovel') return
+
+          if (tag === 'novela visual')
+            return (
+              <div class="bg-neutral-900  rounded-full h-fit text-white text-xs p-1 px-2">
+                Novela visual
+              </div>
+            )
+
+          return
+        })
+      }
+    </section>
+  </div>
+  <p class="text-right text-slate-400 text-xs pt-2">
+    Posteado el {new Date(updated).toLocaleDateString()}
+  </p>
+</a>

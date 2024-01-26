@@ -4,6 +4,7 @@ import type { AstroInstance } from 'astro'
 import { url as urlBase } from '../../scripts/url'
 import Pagination from '../../components/Pagination.astro'
 import Layout from '../../layouts/Layout.astro'
+import Card from '@/components/Card.astro'
 const { pag } = Astro.params
 
 const entries = (await Astro.glob('../entradas/**/*.astro')) as Entry[] &
@@ -60,13 +61,13 @@ const { data } = Astro.props
         data.map((e) => {
           const urlSplit = e.url.split('/').slice(-4).join('/').split('.')[0]
           return (
-            <a
-              class="border p-2 rounded-md bg-slate-800 text-white"
-              href={`${urlBase}/${urlSplit}`}
-            >
-              <h1>{e.title}</h1>
-              <img src={e.cover} alt="" />
-            </a>
+            <Card
+              title={e.title}
+              cover={e.cover}
+              tags={e.tags}
+              url={`/${urlSplit}`}
+              updated={e.updated}
+            />
           )
         })
       }

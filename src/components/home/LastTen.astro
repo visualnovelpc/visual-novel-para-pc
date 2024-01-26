@@ -1,7 +1,9 @@
 ---
 import type { AstroInstance } from 'astro'
-const data = (await Astro.glob('../../pages/entradas/**/*.astro')) as Entry[] &
-  AstroInstance[]
+import Card from '../Card.astro'
+const data = (await Astro.glob(
+  '../../pages/entradas/202[3-9]/**/*.astro'
+)) as Entry[] & AstroInstance[]
 
 data.sort(
   (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
@@ -22,73 +24,13 @@ console.log(data[0].url.split('/').slice(-4).join('/').split('.')[0])
         url = e.url.split('/').slice(-4).join('/').split('.')[0]
 
         return (
-          <a
-            href={`${urlBase}/${url}`}
-            class="bg-slate-800  p-2 rounded m-1 text-white  overflow-hidden"
-          >
-            <p class="font-lilita text-xl h-16 text-center">{e.title}</p>
-            <div class="h-52 w-full">
-              <img
-                src={e.cover}
-                alt="img"
-                class="h-full w-auto mx-auto rounded-md object-cover "
-              />
-            </div>
-            <div class="h-32 overflow-y-auto flex justify-center items-center mt-5">
-              <section class="inline-flex flex-wrap items-start gap-1 h-fit">
-                {e.tags.map((tag) => {
-                  if (tag === 'Mediafire')
-                    return (
-                      <div class="bg-blue-600 rounded-full h-fit text-white text-[10px] p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-                  if (tag === 'Mega')
-                    return (
-                      <div class="bg-red-600 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-                  if (tag === 'eroge')
-                    return (
-                      <div class="bg-pink-600 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-
-                  if (tag === 'romance')
-                    return (
-                      <div class="bg-fuchsia-500 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-
-                  if (tag === 'novela cinetica')
-                    return (
-                      <div class="bg-yellow-500 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-                  if (tag === 'sin h')
-                    return (
-                      <div class="bg-green-500 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-
-                  if (tag)
-                    return (
-                      <div class="bg-slate-400/10 rounded-full h-fit text-white text-xs p-1 px-2">
-                        {tag}
-                      </div>
-                    )
-                })}
-              </section>
-            </div>
-            <p class="text-right text-slate-400 text-xs pt-2">
-              Posteado el {new Date(e.updated).toLocaleDateString()}
-            </p>
-          </a>
+          <Card
+            title={e.title}
+            url={url}
+            cover={e.cover}
+            updated={e.updated}
+            tags={e.tags}
+          />
         )
       })
     }
