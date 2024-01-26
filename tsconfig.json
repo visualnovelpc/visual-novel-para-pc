@@ -1,11 +1,9 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "C:/Users/migue/gitLocal/visual-novel-para-pc",
+    "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
